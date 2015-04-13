@@ -1,0 +1,3 @@
+/Volumes/HDD1/work/AAA/workspaces_60/YNDX_V_manage80
+MANAGEYNCT-103
+config/yn/flexiconfig.xml,classes/sqlMapConfig.xml,classes/sqlmaps/crminterfacelog.xml,classes/strutsconfig/query.xml,vpdn/query/query.js,interfacelog/massquery.jsp
