@@ -27,14 +27,20 @@ def listfiletopack(path,targetfile):
 	return fis;
 def listfiletopack1(path,targetfile):
 	fis = []
+	finds = []
 	for root, dirs, files in os.walk(path):
 		for f in files:
 			fi = os.path.join(root, f)
 			for tgf in targetfile :
 				if tgf in fi:
 					fis.append(fi)
-	print(" %s : input files number is %d !" % (localtime,len(targetfile)))
-	print(" %s : i hava finded  %d  files !" % (localtime,len(fis)))
+					finds.append(tgf)
+	print(" %s : Input files number is %d !" % (localtime,len(targetfile)))
+	print(" %s : I hava found  %d  files !" % (localtime,len(fis)))
+	print "The folowing files are missing:-----------"
+	missing_files = list(set(targetfile).difference(set(finds))) # targetfile中有而finds中没有的
+	for f in missing_files :
+		print f
 	return fis;
 # 本函数通过指定要打包的文件夹和要打包的文件,把文件拷贝到文件夹内
 # sourceFile : 要打包的文件绝对路径
