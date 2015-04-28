@@ -13,6 +13,8 @@ import os
 import zipfile
 from myutils import *
 import shutil
+import codecs
+
 
 product_dir = "product"
 target_dir = ""
@@ -28,14 +30,19 @@ for line in open('pack_files.txt'):
 		if (line == '' or line == '\n'):
 			continue
 		else :
-			file_names.append(line.replace("\n", ""))
+			filename = line.replace("\n", "").replace('\\',os.sep).replace('/',os.sep)
+			file_names.append(filename)
 	seed=seed+1
-print("target_dir is : %s" % target_dir)
-print("jira_id is : %s" % jira_id)
-print "file_names are : " ,file_names 
+localtime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+file_prefix = datetime.datetime.now().strftime("%Y-%m-%d")
+file = codecs.open(file_prefix+'_log.txt', 'a', encoding='utf-8')
+file.write("-"*100+'\n\n')
+line = localtime+"	target_dir is : %s \n\n" % target_dir
+file.write(line.decode('unicode_escape'))
+line = localtime+"	jira_id is : %s \n\n" % jira_id
+file.write(line.decode('unicode_escape'))
 f = listfiletopack1(target_dir,file_names)
 for fl in f :
-	print fl
 	f = fl[len(target_dir)+1:len(fl)]
 	index = f.rfind(os.sep)
 	destDir = os.path.join(jira_id,f[:index])
@@ -47,5 +54,3 @@ resultdir = os.path.abspath(os.path.join(os.curdir,jira_id));
 zip_dir(resultdir,resultdir+".zip")
 #删除临时存放文件的文件夹
 shutil.rmtree(resultdir)
-	
-
