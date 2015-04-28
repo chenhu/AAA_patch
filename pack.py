@@ -25,7 +25,10 @@ for line in open('pack_files.txt'):
 	elif seed==1:
 		jira_id = line.replace("\n", "")
 	else :
-		file_names.append(line.replace("\n", ""))
+		if (line == '' or line == '\n'):
+			continue
+		else :
+			file_names.append(line.replace("\n", ""))
 	seed=seed+1
 print("target_dir is : %s" % target_dir)
 print("jira_id is : %s" % jira_id)
@@ -34,7 +37,6 @@ f = listfiletopack1(target_dir,file_names)
 for fl in f :
 	print fl
 	f = fl[len(target_dir)+1:len(fl)]
-	print f
 	index = f.rfind(os.sep)
 	destDir = os.path.join(jira_id,f[:index])
 	copyFiles(fl,os.path.join(product_dir,destDir))

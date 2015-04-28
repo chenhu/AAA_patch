@@ -39,6 +39,7 @@ def listfiletopack1(path,targetfile):
 	print(" %s : I hava found  %d  files !" % (localtime,len(fis)))
 	print "The folowing files are missing:-----------"
 	missing_files = list(set(targetfile).difference(set(finds))) # targetfile中有而finds中没有的
+	print "end missing:-----------"
 	for f in missing_files :
 		print f
 	return fis;
