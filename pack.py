@@ -42,6 +42,7 @@ file.write(line.decode('unicode_escape'))
 line = localtime+"	jira_id is : %s \n\n" % jira_id
 file.write(line.decode('unicode_escape'))
 f = listfiletopack1(target_dir,file_names)
+
 for fl in f :
 	f = fl[len(target_dir)+1:len(fl)]
 	index = f.rfind(os.sep)

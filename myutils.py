@@ -54,6 +54,7 @@ def listfiletopack1(path,targetfile):
 		line = "%s	end missing! \n\n" % (localtime)
 		file.write(line.decode('unicode_escape'))
 	return fis;
+	
 # 本函数通过指定要打包的文件夹和要打包的文件,把文件拷贝到文件夹内
 # sourceFile : 要打包的文件绝对路径
 # destDir : 要存放被打包的文件的目录,一般为 jira单号+要打包文件的相对路径,根目录为从webapps下面开始
