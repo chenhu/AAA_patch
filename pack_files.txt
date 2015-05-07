@@ -1,8 +1,8 @@
-/Volumes/HDD1/work/AAA/workspaces_60/YNDX_V_manage80
-MANAGEYNCT-103
-config/yn/flexiconfig.xml
-classes/sqlMapConfig.xml
-classes/sqlmaps/crminterfacelog.xml
-classes/strutsconfig/query.xml
-vpdn/query/query.js
-interfacelog/massquery.jsp
+/Volumes/HDD1/work/AAA/workspaces_60/lcims70_hn_lt/webapps
+MANAGE7.2_HACU0016
+xworkconfig\schoollan.xml
+impl\BroadbandUserBOImpl.class
+mclient\BroadbandUserAction.class
+schoollan\iptype\iptype_init.jsp
+schoollan\iptype\iptype_input.jsp
+schoollan\iptype\iptype_perform.jsp

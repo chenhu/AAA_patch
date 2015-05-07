@@ -15,23 +15,21 @@ from myutils import *
 import shutil
 import codecs
 
-
 product_dir = "product"
 target_dir = ""
 jira_id = ""
 file_names = []
 seed = 0
 for line in open('pack_files.txt'):
+	if (line == '' or line == '\n'):
+			continue
 	if seed==0:
-		target_dir=line.replace("\n", "")
+		target_dir=line.replace("\n", "").replace('\\',os.sep).replace('/',os.sep)
 	elif seed==1:
 		jira_id = line.replace("\n", "")
 	else :
-		if (line == '' or line == '\n'):
-			continue
-		else :
-			filename = line.replace("\n", "").replace('\\',os.sep).replace('/',os.sep)
-			file_names.append(filename)
+		filename = line.replace("\n", "").replace('\\',os.sep).replace('/',os.sep)
+		file_names.append(filename)
 	seed=seed+1
 localtime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 file_prefix = datetime.datetime.now().strftime("%Y-%m-%d")
